@@ -73,17 +73,49 @@
             </ul>
             <button>chnage it</button>
         </div>
-        <div >
-            <h2 @click="changeTitle()">{{head}}</h2>
+        <div>
+            <h2 @click="changeTitle()">{{ head }}</h2>
         </div>
         <div class="orange">
             <h2>input binding</h2>
             <input class="magic" type="text" value="hey" v-model.lazy="swith" placeholder="sarthik kevadiya">
             <p>{{ swith }}</p>
-            <input type="checkbox" id="fruit" value="fruit" v-model="checkbox"><label for="fruit">Fruit</label>
-            <p>{{ checkbox }}</p>
-            <input type="checkbox" id="bike"> <label for="bike">bike</label>
-            <input type="checkbox" id="cars"> <label for="cars">carsaaaa</label>
+            <form action="">
+                <input type="checkbox" id="fruit" value="Fruit" v-model="checkbox">
+                <label for="fruit">Fruit</label>
+                <input type="checkbox" id="bike" value="bike" v-model="checkbox">
+                <label for="bike">bike</label>
+                <input type="checkbox" id="cars" value="carsaaaa" v-model="checkbox">
+                <label for="cars">carsaaaa</label>
+                <ul>
+                    <li v-for="check in checkbox" :key="check">{{ check }}</li>
+                </ul>
+                <select v-model="data2.select">
+                    <option v-for="select in option" :key="select">{{ select }}</option>
+                </select><br />
+                <button type="submit" @click.prevent="post">Submit</button>
+            </form>
+            <p>hey:{{ data2.select }}</p>
+        </div>
+        <div class="orange" v-width="'wide'">
+            <h2 v-rainbow="">hello directive</h2>
+        </div>
+        <div class="skyblue" v-width="'mid-wide'">
+            <h2 v-rainbow="">hello directive</h2>
+        </div>
+        <div class="orange" v-width="">
+            <h2 v-rainbow="">hello directive</h2>
+        </div>
+        <div>
+            <h2>{{ fillter | toUpperCase }}</h2>
+            <p>{{ lorem | slice }}</p>
+        </div>
+        <div class="skyblue">
+            <input type="text" placeholder="Enter Name Buddy" v-model="data_in">
+            <ul v-for="item in data_filter" :key="item">
+                <li>{{ item.name }}</li>
+                <li>{{ item.cars }}</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -109,7 +141,14 @@ export default {
             hidden: true,
             data: "",
             swith: "",
-            checkbox: "",
+            data_in: "",
+            checkbox: [],
+            fillter: 'Hello Filter Here',
+            lorem: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti doloribus et expedita dignissimos soluta! Odit est reprehenderit asperiores excepturi repellendus dicta qui eveniet cupiditate, quod libero. Ipsum dolores accusantium quibusdam facere repudiandae quo eaque saepe voluptas rerum id odit, impedit sunt corrupti a eveniet aspernatur ad aut nihil iste temporibus natus voluptatum tenetur deserunt veritatis. Deserunt dolorem, dolores libero quas delectus fugiat error doloremque architecto dolor facilis. Vero quod nihil minima necessitatibus blanditiis ullam quo accusantium eaque cum nostrum? Officia qui ipsa quis cumque voluptates? Doloremque eveniet, suscipit nobis consequuntur, ipsa facere, non explicabo vero voluptate eius excepturi aperiam nostrum.",
+            option: ["AUDI", "BMW", "SKODA"],
+            data2: {
+                select: ""
+            },
             bio: [
                 {
                     name: "bunty",
@@ -175,7 +214,14 @@ export default {
             return "I'm Back"
         },
         changeTitle() {
-            this.$emit('changeTitle',"title pe title")
+            this.$emit('changeTitle', "title pe title")
+        },
+        post() {
+            this.$http.post("https://jsonplaceholder.typicode.com/posts", {
+                title: this.index,
+                userId: 111
+            })
+            console.log("hey hey")
         }
     },
     mounted() {
@@ -189,6 +235,23 @@ export default {
         dun2() {
             console.log("fello")
             return this.b + this.age
+        },
+        data_filter() {
+            return this.bio.filter((item) => {
+                return item.cars.match(this.data_in)
+            })
+        }
+    },
+    filters: {
+        'toUpperCase':function(value){
+            return value.toUpperCase()
+        }
+    },
+    directives: {
+        rainbow:{
+            bind(el) {
+                el.style.color = "#" + Math.random().toString().slice(2, 8)
+            }
         }
     }
 }
@@ -248,8 +311,14 @@ span {
 .employ-name--color {
     color: purple;
 }
-.orange{
+
+.orange {
     background-color: orange;
+    padding: 50px 0;
+}
+
+.skyblue {
+    background-color: skyblue;
     padding: 50px 0;
 }
 </style>
