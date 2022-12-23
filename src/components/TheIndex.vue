@@ -1,5 +1,9 @@
 <template>
-    <div>
+    <div class="index">
+        <div>
+            <router-link :to="{name:'TheSub'}">Go to sub</router-link><br/>
+            <router-link :to="{ name: 'TheAll', params: {slug: 'SLUG CALLING'}}">Go to all</router-link>
+        </div>
         <div class="orange">
             <h1 v-if="good">{{ index }}/{{ gm }}</h1>
             <h2>{{ goodmor('qwert') }}</h2>
@@ -117,24 +121,62 @@
                 <li>{{ item.cars }}</li>
             </ul>
         </div>
+        <div>
+            <h3>{{ sunny }}</h3>
+            <button @click="change()">click me sunny</button>
+        </div>
+        <div>
+            <h2 :class="click ? bg__green : bg__red">Dynamic classes</h2>
+            <h2 :class="{ mercedes }">Dynamic classes 2</h2>
+            <h2 :class="['one','two','three']">Dynamic classes 3</h2>
+            <h3 :class="$attrs.class">Dynamic classes 4</h3>
+            <p :style="{ fontSize: fontSize }">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quisquam dolores deserunt culpa odio quasi odit, recusandae laudantium esse hic!</p>
+            <button @click="fontsize()">change font</button>
+            <button @click="click=!click">Add Class</button>
+        </div>
+        <div class="orange">
+            <h1 v-if="awesome">The Title tag</h1>
+            <p v-else>hewertyu</p>
+            <button @click="awesome = !awesome">click me</button>
+        </div>
+        <div>
+            <h3>text::{{ text }}</h3>
+            <input type="text" v-model="inputage">
+            <p>{{ inputage }}</p>
+            <button @click="agecalc(ages.values())">eligible or not</button>
+        </div>
     </div>
 </template>
 <script>
+import searchmixin from '@/mixins/searchmixin';
+
 export default {
     name: "TheIndex",
     data() {
         return {
+            inputage:"",
+            text: "",
+            ages:[20,34,44,56,23,18,27],
+            fontSize: "40px",
+            mercedes: true,
+            sunny: "sunny",
             index: "hello sarthik",
             good: true,
             link: 'https://stackoverflow.com/questions/48929139/hide-div-onclick-in-vue-js',
             sarthik: "",
             Sunny: "<h3>sarthik</h3>",
             count: 3,
+            click: true,
+            awesome: true,
             X: 0,
             Y: 0,
             h: 0,
             a: 10,
             b: 30,
+            bg__oo: "hey",
+            bg__green: 'bg__green',
+            bg__red: "bg__red",
+            blog: {},
             red: true,
             blue: false,
             age: 20,
@@ -188,6 +230,9 @@ export default {
         head: String
     },
     methods: {
+        change() {
+            this.sunny ="sarthik"
+        },
         goodmor(hello) {
             return "Good vali morning" + " " + hello + this.index;
         },
@@ -222,10 +267,27 @@ export default {
                 userId: 111
             })
             console.log("hey hey")
+        },
+        fontsize() {
+            this.fontSize = '30px'
+        },
+        agecalc(age) {
+            if (age >= 18) {
+                return this.text = "Eligdble"
+            }
+            else {
+                return this.text = "Not Eligdble"
+            }
         }
     },
     mounted() {
         console.log(this.$refs)
+    },
+    created() {
+        this.$http.get("https://jsonplaceholder.typicode.com/posts"+ this.id).then(function (data) {
+            console.log(data);
+            this.blog = data.body;
+        })
     },
     computed: {
         dun() {
@@ -236,25 +298,23 @@ export default {
             console.log("fello")
             return this.b + this.age
         },
-        data_filter() {
-            return this.bio.filter((item) => {
-                return item.cars.match(this.data_in)
-            })
-        }
+        
     },
     filters: {
         'toUpperCase':function(value){
             return value.toUpperCase()
         }
     },
-    directives: {
+    directives: { 
         rainbow:{
             bind(el) {
                 el.style.color = "#" + Math.random().toString().slice(2, 8)
             }
         }
-    }
+    },
+    mixins: [searchmixin]
 }
+
 </script>
 <style>
 .box {
@@ -299,7 +359,12 @@ span {
     font-weight: 900;
     margin-bottom: 30px;
 }
-
+.font__sm{
+    font-size: 30px;
+}
+.font__big {
+    font-size: 50px;
+}
 .employ-btn {
     padding: 10px;
     background-color: #ffbbff;
@@ -316,9 +381,17 @@ span {
     background-color: orange;
     padding: 50px 0;
 }
-
+.index{
+    padding-bottom: 500px;
+}
 .skyblue {
     background-color: skyblue;
     padding: 50px 0;
+}
+.bg__green{
+    background-color: green;
+}
+.bg__red{
+    background-color: red;
 }
 </style>

@@ -1,22 +1,26 @@
 <template>
   <div id="app">
-    <TheIndex v-bind:head="head" gm="Good Morning" v-on:changeTitle="updateTitle($event)" test="successfully done" />
-    <TheSub v-bind:fname="fname" @fname="getName"/>
-    <TheAll/>
+    <!-- <TheSub v-bind:fname="fname" @fname="getName" @Mname="getmname" />
+    <TheAll />
+    <TheIndex v-bind:head="head" gm="Good Morning" v-on:changeTitle="updateTitle($event)" test="successfully done" /> -->
+    <router-view>
+
+    </router-view>
   </div>
 </template>
 
 <script>
-import TheIndex from './components/TheIndex.vue'
-import TheSub from './components/TheSub.vue'
-import TheAll from "./components/TheAll.vue";
+// import TheIndex from './components/TheIndex.vue'
+// import TheSub from './components/TheSub.vue'
+// import TheAll from "./components/TheAll.vue"
+
 export default {
   name: 'App',
   components: {
-    TheIndex,
-    TheSub,
-    TheAll
-},
+    // TheIndex,
+    // TheSub,
+    // TheAll,
+  },
   data() {
     return {
       title: "Ckekc ckeck",
@@ -28,18 +32,20 @@ export default {
       ],
       head: "Heading Calling",
       fname: "HEY HEY SAY HEY HEY",
-      
-    }
+      Mname: "Abhi",    }
   },
   methods: {
     updateTitle(updatedTitle) {
       this.head = updatedTitle
     },
     getName(value) {
-      this.fname = value // Raja Tamil
+      this.block = value // SUNNY Tamil
+    },
+    getmname(value) {
+      this.Mname = value
     }
   },
-  
+
 }
 </script>
 
