@@ -7,6 +7,8 @@
         <button @click="$emit('fname', true)">$emit button</button>
         <button @click="$emit('Mname', 'Gordhanbhai')">child to parent</button>
         <button>Hide It</button>
+        <h1>{{ text5 }}</h1>
+
     </div>
     
 </template>
@@ -15,11 +17,12 @@ export default {
     name: "TheSub",
     data() {
         return {
-            
+           
         }
     },
     props: {
-        fname: String
+        fname: String,
+        text5: String,
     },
     // methods: {
     //     hello() {

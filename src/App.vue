@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- <TheSub v-bind:fname="fname" @fname="getName" @Mname="getmname" />
-    <TheAll />
+    <TheSub v-bind:fname="fname" @fname="getName" @Mname="getmname" />
+  <!--  <TheAll />
     <TheIndex v-bind:head="head" gm="Good Morning" v-on:changeTitle="updateTitle($event)" test="successfully done" /> -->
     <router-view>
 
@@ -11,14 +11,14 @@
 
 <script>
 // import TheIndex from './components/TheIndex.vue'
-// import TheSub from './components/TheSub.vue'
+import TheSub from './components/TheSub.vue'
 // import TheAll from "./components/TheAll.vue"
 
 export default {
   name: 'App',
   components: {
     // TheIndex,
-    // TheSub,
+    TheSub,
     // TheAll,
   },
   data() {

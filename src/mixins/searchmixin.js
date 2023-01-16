@@ -1,9 +1,15 @@
 export default {
     computed: {
-        data_filter() {
-            return this.bio.filter((item) => {
-                return item.cars.match(this.data_in)
+        filterblog() {
+            return this.data.filter((get) => {
+                return get.title.match(this.filter)
             })
         }
-    }
+    },
+    filters: {
+        bold(value) {
+            return value.toUpperCase()
+        },
+        filter(value) { return value.slice(0, 100) }
+    },
 }

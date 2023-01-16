@@ -13,13 +13,12 @@ export default [
     {
         name: "TheSub",
         path: '/thesub',
-        component: TheSub
+        component: TheSub,
     },
     {
         name: "TheAll",
-        path: '/theall/:slug',
+        path: '/theall/:slug0',
         component: TheAll,
-        props: true
     },
     {
         name: "NotFound",
