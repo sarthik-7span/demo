@@ -201,6 +201,7 @@
         </div>
         <TheSub :text5="text5"/>
         <SecondIndex :text="text2" :text2="text2" :text5="text5" :text6="text6" v-on:textchng11="updatetitle($event)" :detail="detail" />
+        <h1>TESTING TEXT here</h1>
     </div>
 </template>
 <script>
