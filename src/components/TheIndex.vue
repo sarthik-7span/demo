@@ -212,20 +212,6 @@
                 unde non sequi quod, libero suscipit adipisci eius fugiat fuga delectus neque molestias molestiae
                 temporibus vel eligendi amet porro ab recusandae consectetur magnam eveniet. Nisi repellendus autem
                 possimus necessitatibus.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quia cupiditate obcaecati dolorum, ex quas
-                sit delectus,
-                neque possimus facere nisi inventore est aut incidunt nostrum assumenda architecto! Praesentium hic
-                quaerat
-                provident, nisi exercitationem dolorem? Assumenda rem tempore ab facere omnis quaerat vero error porro
-                hic, sapiente
-                cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo omnis nisi, expedita asperiores,
-                tenetur delectus,
-                molestias cum minus explicabo et tempore iste! Et unde non sequi quod, libero suscipit adipisci eius
-                fugiat fuga
-                delectus neque molestias molestiae temporibus vel eligendi amet porro ab recusandae consectetur magnam
-                eveniet. Nisi
-                repellendus autem possimus............vvvvvvvvvvvvvvvvvvvvv</p>
-            <p>eeeeeeeeee</p>
         </div>
     </div>
 </template>
