@@ -2,7 +2,7 @@
     <div class="index">
         <div>
             <div>
-                <router-link :to="{ name: 'TheSub'}">Go to sub</router-link><br />
+                <router-link :to="{ name: 'TheSub' }">Go to sub</router-link><br />
                 <router-link to="TheAll/first">Go to all first</router-link> <br>
                 <router-link to="TheAll/second">Go to all second</router-link> <br>
                 <router-link to="TheAll/third">Go to all third</router-link>
@@ -199,18 +199,33 @@
                 <button @click="readrefs()">submit</button>
             </div>
         </div>
-        <TheSub :text5="text5"/>
-        <SecondIndex :text="text2" :text2="text2" :text5="text5" :text6="text6" v-on:textchng11="updatetitle($event)" :detail="detail" />
+        <TheSub :text5="text5" />
+        <SecondIndex :text="text2" :text2="text2" :text5="text5" :text6="text6" v-on:textchng11="updatetitle($event)"
+            :detail="detail" />
         <h1>TESTING TEXT here</h1>
         <div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quia cupiditate obcaecati dolorum, ex quas sit delectus, neque possimus facere nisi inventore est aut incidunt nostrum assumenda architecto! Praesentium hic quaerat provident, nisi exercitationem dolorem? Assumenda rem tempore ab facere omnis quaerat vero error porro hic, sapiente cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo omnis nisi, expedita asperiores, tenetur delectus, molestias cum minus explicabo et tempore iste! Et unde non sequi quod, libero suscipit adipisci eius fugiat fuga delectus neque molestias molestiae temporibus vel eligendi amet porro ab recusandae consectetur magnam eveniet. Nisi repellendus autem possimus necessitatibus.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quia cupiditate obcaecati dolorum, ex quas sit delectus,
-                neque possimus facere nisi inventore est aut incidunt nostrum assumenda architecto! Praesentium hic quaerat
-                provident, nisi exercitationem dolorem? Assumenda rem tempore ab facere omnis quaerat vero error porro hic, sapiente
-                cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo omnis nisi, expedita asperiores, tenetur delectus,
-                molestias cum minus explicabo et tempore iste! Et unde non sequi quod, libero suscipit adipisci eius fugiat fuga
-                delectus neque molestias molestiae temporibus vel eligendi amet porro ab recusandae consectetur magnam eveniet. Nisi
-                repellendus autem possimus............</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quia cupiditate obcaecati dolorum, ex quas
+                sit delectus, neque possimus facere nisi inventore est aut incidunt nostrum assumenda architecto!
+                Praesentium hic quaerat provident, nisi exercitationem dolorem? Assumenda rem tempore ab facere omnis
+                quaerat vero error porro hic, sapiente cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo
+                omnis nisi, expedita asperiores, tenetur delectus, molestias cum minus explicabo et tempore iste! Et
+                unde non sequi quod, libero suscipit adipisci eius fugiat fuga delectus neque molestias molestiae
+                temporibus vel eligendi amet porro ab recusandae consectetur magnam eveniet. Nisi repellendus autem
+                possimus necessitatibus.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quia cupiditate obcaecati dolorum, ex quas
+                sit delectus,
+                neque possimus facere nisi inventore est aut incidunt nostrum assumenda architecto! Praesentium hic
+                quaerat
+                provident, nisi exercitationem dolorem? Assumenda rem tempore ab facere omnis quaerat vero error porro
+                hic, sapiente
+                cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo omnis nisi, expedita asperiores,
+                tenetur delectus,
+                molestias cum minus explicabo et tempore iste! Et unde non sequi quod, libero suscipit adipisci eius
+                fugiat fuga
+                delectus neque molestias molestiae temporibus vel eligendi amet porro ab recusandae consectetur magnam
+                eveniet. Nisi
+                repellendus autem possimus............vvvvvvvvvvvvvvvvvvvvv</p>
+            <p>eeeeeeeeee</p>
         </div>
     </div>
 </template>
@@ -412,7 +427,7 @@ export default {
             this.blog = data.body;
         })
     },
-    
+
     computed: {
         dun() {
             console.log("hello")
