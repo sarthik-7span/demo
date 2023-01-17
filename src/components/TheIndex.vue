@@ -210,7 +210,7 @@
                 cumque commodi quis nisi! Eligendi omnis enim ipsam? Commodi quo omnis nisi, expedita asperiores, tenetur delectus,
                 molestias cum minus explicabo et tempore iste! Et unde non sequi quod, libero suscipit adipisci eius fugiat fuga
                 delectus neque molestias molestiae temporibus vel eligendi amet porro ab recusandae consectetur magnam eveniet. Nisi
-                repellendus autem possimus .</p>
+                repellendus autem possimus............</p>
         </div>
     </div>
 </template>
