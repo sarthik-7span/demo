@@ -116,6 +116,9 @@
                 <button @click.prevent="adduser()">ADD USER</button>
             </form>
         </div>
+        <div>
+            second index added
+        </div>
     </div>
 </template>
 <script>
